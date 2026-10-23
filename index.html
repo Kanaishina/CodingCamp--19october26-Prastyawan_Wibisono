@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Greeting Section -->
+    <header class="greeting-section">
+        <div class="greeting-content">
+            <h1 id="greeting">Hello!</h1>
+            <p id="userNameDisplay" class="user-name-hint">Click to set your name</p>
+            <div class="time-date">
+                <span id="currentTime">--:--</span>
+                <span id="currentDate">Loading...</span>
+            </div>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </header>
+
+    <main class="dashboard">
+        <!-- Focus Timer Section -->
+        <section class="card timer-section">
+            <h2>Focus Timer</h2>
+            <div id="timerDisplay" class="timer-display">25:00</div>
+            <div class="timer-controls">
+                <button id="timerStart" class="btn btn-primary">Start</button>
+                <button id="timerStop" class="btn btn-secondary">Stop</button>
+                <button id="timerReset" class="btn btn-secondary">Reset</button>
+            </div>
+        </section>
+
+        <!-- To-Do List Section -->
+        <section class="card todo-section">
+            <h2>To-Do List</h2>
+            <form id="todoForm" class="todo-form">
+                <input type="text" id="todoInput" placeholder="Add a new task..." autocomplete="off">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+            <ul id="todoList" class="todo-list"></ul>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="card links-section">
+            <h2>Quick Links</h2>
+            <form id="linkForm" class="link-form">
+                <input type="text" id="linkName" placeholder="Link name" autocomplete="off">
+                <input type="url" id="linkUrl" placeholder="https://example.com" autocomplete="off">
+                <button type="submit" class="btn btn-primary">Add Link</button>
+            </form>
+            <div id="linksList" class="links-list"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>My Personal Dashboard &middot; Built with HTML, CSS &amp; Vanilla JS</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+/* ===========================
+   CSS Variables - Theme System
+   =========================== */
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-color: #1a1a2e;
+    --text-muted: #6c7293;
+    --primary-color: #4361ee;
+    --primary-hover: #3a56d4;
+    --secondary-color: #e2e8f0;
+    --secondary-hover: #cbd5e1;
+    --border-color: #e2e8f0;
+    --done-color: #22c55e;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a2e;
+    --card-bg: #16213e;
+    --text-color: #e2e8f0;
+    --text-muted: #94a3b8;
+    --primary-color: #6188ff;
+    --primary-hover: #5078f0;
+    --secondary-color: #334155;
+    --secondary-hover: #475569;
+    --border-color: #334155;
+    --done-color: #22c55e;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================
+   Reset & Base Styles
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===========================
+   Greeting Section
+   =========================== */
+.greeting-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 2.5rem 1rem;
+}
+
+.greeting-content {
+    flex: 1;
+    min-width: 0;
+}
+
+#greeting {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.user-name-hint {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.user-name-hint:hover {
+    color: var(--primary-color);
+}
+
+.time-date {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+#currentTime {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+}
+
+/* ===========================
+   Dashboard Layout
+   =========================== */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    flex: 1;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-color);
+}
+
+/* ===========================
+   Focus Timer
+   =========================== */
+.timer-display {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem 0 1.5rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-hover);
+}
+
+.btn-danger {
+    background: none;
+    color: #ef4444;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ===========================
+   To-Do List
+   =========================== */
+.todo-form,
+.link-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.todo-form input {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Link form: inputs and button stay inside the card at any width */
+.link-form input[type="text"],
+.link-form input[type="url"] {
+    flex: 1 1 120px;
+    min-width: 0;
+}
+
+.link-form .btn {
+    flex: 0 0 auto;
+}
+
+input[type="text"],
+input[type="url"] {
+    padding: 0.6rem 0.85rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus {
+    border-color: var(--primary-color);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-color);
+    border-radius: 8px;
+    transition: opacity 0.2s ease;
+}
+
+.todo-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--done-color);
+    flex-shrink: 0;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 0.95rem;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.todo-item.done .todo-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.todo-edit-input {
+    flex: 1;
+    padding: 0.3rem 0.5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    outline: none;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* ===========================
+   Quick Links
+   =========================== */
+.links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-color);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.link-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.link-item a:hover {
+    text-decoration: underline;
+}
+
+.link-delete {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.link-delete:hover {
+    opacity: 1;
+}
+
+.empty-hint {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 768px) {
+    .greeting-section {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .dashboard {
+        padding: 1rem;
+    }
+
+    #greeting {
+        font-size: 1.8rem;
+    }
+
+    .timer-display {
+        font-size: 3rem;
+    }
+
+    /* On small screens, stack the link form elements vertically */
+    .link-form input[type="text"],
+    .link-form input[type="url"] {
+        flex: 1 1 100%;
+    }
+}
